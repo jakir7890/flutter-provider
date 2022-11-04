@@ -61,6 +61,11 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
+        actions: [
+          Padding(padding: EdgeInsets.all(10),child: IconButton(onPressed: () {
+            
+          }, icon: Icon(Icons.arrow_right_alt_rounded)),)
+        ],
       ),
       body: todos.todos.length == 0
           ? Center(child: Text('There is Nothing'))
