@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_provider/helper/helper_comment.dart';
 import 'package:flutter_provider/models/api_comments.dart';
+import 'package:flutter_provider/views/details_screen.dart';
 
 class APIScreen extends StatefulWidget {
-  const APIScreen({super.key});
+  APIScreen({super.key});
 
   @override
   State<APIScreen> createState() => _APIScreenState();
@@ -11,6 +12,7 @@ class APIScreen extends StatefulWidget {
 
 class _APIScreenState extends State<APIScreen> {
   List<Comment>? comments;
+  
 
   bool isLoaded = false;
 
@@ -53,6 +55,12 @@ class _APIScreenState extends State<APIScreen> {
                   title: Text(comments![index].email),
                   textColor: Colors.green,
                   subtitle: Text(comments![index].body),
+                  onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => DetailsScreen(comments![index]),
+                      
+                    )),
                 ),
               );
             },
